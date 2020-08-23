@@ -1,28 +1,46 @@
 <template>
 <div id="app">
-    <Button></Button>
+    
+    <button @click="show = !show">
+        Start
+    </button>
+    <AttackButton/>
+ 
+    <transition name="fade">
+        <div v-if="show">
+            Select
+            
+            
+            <button >Ironman</button>
+            
+        </div>
+    </transition>
+
     
 </div>
-
-
 </template>
 
 
 <script>
-import Button from './components/Button.vue'
-export default {
+import AttackButton from "./components/AttackButton.vue"
 
+export default {
     name: 'App',
-    
+
     components: {
-      Button
+        AttackButton
+        
     },
     data: function () {
         return {
+            show: true,
+            n: 0,
+            pick: String,
             player: [{
                     name: 'Anakin',
                     hp: 100,
-                    image: ''},
+                    image: ''
+                },
                 {
                     name: 'Ironman',
                     hp: 120,
@@ -34,21 +52,24 @@ export default {
                     image: ''
                 },
                 {
-                    name: 'stat lord',
+                    name: 'Star lord',
                     hp: 129,
                     image: ''
                 },
             ],
-            
+
         }
 
     },
-
-   
+    methods: {
+        
+        
+    }
 
 }
-
 </script>
+
+
 
 <style>
 #app {
@@ -59,10 +80,14 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>
