@@ -4,17 +4,19 @@
     <button @click="show = !show">
         Start
     </button>
-    <AttackButton/>
+    
  
     <transition name="fade">
         <div v-if="show">
             Select
             
             
-            <button >Ironman</button>
+            <Select></Select>
             
         </div>
     </transition>
+
+    <AttackButton/>
 
     
 </div>
@@ -23,12 +25,14 @@
 
 <script>
 import AttackButton from "./components/AttackButton.vue"
+import Select from "./components/Select.vue"
 
 export default {
     name: 'App',
 
     components: {
-        AttackButton
+        AttackButton,
+        Select
         
     },
     data: function () {
@@ -36,27 +40,7 @@ export default {
             show: true,
             n: 0,
             pick: String,
-            player: [{
-                    name: 'Anakin',
-                    hp: 100,
-                    image: ''
-                },
-                {
-                    name: 'Ironman',
-                    hp: 120,
-                    image: ''
-                },
-                {
-                    name: 'spiderman',
-                    hp: 110,
-                    image: ''
-                },
-                {
-                    name: 'Star lord',
-                    hp: 129,
-                    image: ''
-                },
-            ],
+            
 
         }
 
