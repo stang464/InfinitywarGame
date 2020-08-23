@@ -11,13 +11,17 @@
             Select
             
             
-            <Select></Select>
+            <Select @Heroname="Heroname"></Select>
             
         </div>
         
     </transition>
 
     <AttackButton/>
+
+    
+       Hero : {{name}}
+    
 
     
 </div>
@@ -40,13 +44,18 @@ export default {
         return {
             show: true,
             n: 0,
-            pick: String,
+            name: "",
             
 
         }
 
     },
     methods: {
+
+        Heroname(value){
+            this.name = value
+            console.log("emit" ,this.name)
+        }
         
         
     }

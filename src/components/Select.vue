@@ -1,7 +1,8 @@
 <template>
   <div id="Select">
-      <button @click="pickName(0)">
-          Anakin
+     
+      <button @click="random">
+          random
       </button>
 
   </div>
@@ -36,8 +37,28 @@ export default {
     },
     methods :{
         pickName:function(n){
-            this.$emit("Name" ,this.player[0].name)
+        
             console.log("name :" , this.player[n].name )
+        },
+
+        randomHero: function (min, max) {
+            
+            return Math.max(Math.floor(Math.random() * max) + 1, min)
+            
+           
+        },
+
+        random:function(){
+            
+            
+            this.n = this.randomHero(0,3)
+            this.name_hero = this.player[this.n].name 
+            this.hp_hero = this.player[this.n].hp
+            this.$emit("Heroname",this.name_hero)
+            console.log("name :" ,this.name_hero)
+            console.log("hp :" ,this.hp_hero)
+            
+
         }
     }
     
