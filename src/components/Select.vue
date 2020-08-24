@@ -112,7 +112,7 @@ export default {
             
             this.$emit("Imghero",this.imghero)
             this.$emit("Imgmonster",this.imgmonster)
-          //  this.$emit("Imgmonster", this.imgmonster)
+          
         }
     },
 

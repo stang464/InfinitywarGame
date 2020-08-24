@@ -45,9 +45,7 @@ export default {
             console.log("SPATK back",this.spatk)
         },
 
-        AttackRandom : function(){
-            
-        }
+        
         
         
     }
