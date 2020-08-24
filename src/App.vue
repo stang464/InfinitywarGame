@@ -6,7 +6,7 @@
 
             <transition name="fade">
                 <div v-if="show">
-                    <Select @Imgmonster="imgmonster" @Imghero="imghero" @Heroname="Heroname" @HeroHP="HeroHp" @Monstername="Monstername" @MonsterHP="MonsterHP"></Select>
+                    <Select  @Imgmonster="imgmonster" @Imghero="imghero" @Heroname="Heroname" @HeroHP="HeroHp" @Monstername="Monstername" @MonsterHP="MonsterHP"></Select>
                 </div>
 
             </transition>
@@ -36,22 +36,19 @@
             <h1>Monster : {{monstername}} | HP : {{HPMonster}}</h1>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div v-if="HPHero <= 0" class="">
-                    You Louse
-                    Plaese Restart
-                </div>
-                <div v-if="HPMonster <= 0">
-                    You WIN
-                    Plaese Restart
-                </div>
-
-                <div v-if="HPMonster <= 0 && HPHero <= 0">
-                    Draw
-                    Plaese Restart
-                </div>
+        
+    </div>
+    <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                
+                    <p v-if="HPHero <= 0 && HPMonster > 0 && heroname != ''" >You Louse Plaese Restart</p>
+                    <p v-if="HPMonster <= 0 && HPHero > 0 && heroname != ''" >You WIN Plaese Restart</p>
+                    <p v-if="(HPHero<=0 && HPMonster <= 0 ) && heroname != ''" >Draw Plaese Restart</p>
+                
+                
             </div>
+            <div class="col-md-3"></div>
 
             
                 
@@ -62,7 +59,6 @@
 
         </div>
 
-    </div>
     <div class="row">
         <div class="col-md-6">
             <p v-if="imgHero"><img :src="imgHero" alt="" class="img-fluid image"></p>
@@ -70,7 +66,7 @@
         </div>
 
         <div class="col-md-6">
-            <img src=imgMonster alt="">
+            <p v-if="imgMonster"><img :src="imgMonster" alt="" class="img-fluid image"></p>
 
         </div>
 
@@ -150,7 +146,7 @@ export default {
         },
         imgmonster(value) {
             this.imgMonster = value
-        }
+        },
 
     }
 

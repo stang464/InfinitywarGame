@@ -34,35 +34,42 @@ export default {
                 },
             ],
 
-            monster: [{
+            monster: [
+                {
                     name: 'Darth Vader',
                     hp: 140,
-                    image: ''
+                    image: 'https://media2.giphy.com/media/hyBjcpooaAwuY/200.gif'
+                },
+                {
+                    name: 'Darth Vader',
+                    hp: 140,
+                    image: 'https://media2.giphy.com/media/hyBjcpooaAwuY/200.gif'
                 },
                 {
                     name: 'Thnos',
                     hp: 126,
-                    image: ''
+                    image: 'https://media1.tenor.com/images/f7481abb3980fcf55595edc5b4a335ee/tenor.gif?itemid=16376229'
                 },
                 {
                     name: 'Red Skull',
                     hp: 110,
-                    image: ''
+                    image: 'https://static.comicvine.com/uploads/original/11113/111131285/5555910-0785096517-53759.gif'
                 },
                 {
                     name: 'Kingpin',
                     hp: 108,
-                    image: ''
+                    image: 'https://static.comicvine.com/uploads/original/11133/111330014/6081372-6719731929-471af.gif'
                 },
-                {
-                    neme: 'Loki',
-                    hp: 114,
-                    image: ''
-                },
+                
                 {
                     name: 'Ultron',
                     hp: 134,
-                    image: ''
+                    image: 'https://thumbs.gfycat.com/ThinTinyAegeancat-size_restricted.gif'
+                },
+                {
+                    name:'Loki',
+                    hp: 114,
+                    image:'https://media1.tenor.com/images/0098c95e1d99ca1311ce99f21f5cd167/tenor.gif?itemid=14866169'
                 }
             ]
         }
@@ -81,7 +88,7 @@ export default {
 
         random: function () {
             this.nH = this.randomHero(0, 3)
-            this.nM = this.randomHero(0, 5)
+            this.nM = this.randomHero(0, 6)
             this.name_hero = this.player[this.nH].name //สุ่ม hero เก็บในตัวแปร ชื่อ
             this.hp_hero = this.player[this.nH].hp //สุ่ม hero เก็บในตัวแปร hp
 
@@ -101,8 +108,10 @@ export default {
             console.log("hp :", this.hp_monster)
 
             this.imghero = this.player[this.nH].image
+            this.imgmonster = this.monster[this.nM].image
             
             this.$emit("Imghero",this.imghero)
+            this.$emit("Imgmonster",this.imgmonster)
           //  this.$emit("Imgmonster", this.imgmonster)
         }
     },
