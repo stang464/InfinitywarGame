@@ -29,13 +29,25 @@ export default {
             this.atk = this.randomDamage(3,10)
             this.$emit("atk",this.atk)
             console.log("Attack :",this.atk)
+
+            this.atk = this.randomDamage(3,10)
+            this.$emit("RandomATK" , this.atk)
+            console.log("Atk back",this.atk)
         },
 
         $Spattk : function (){
             this.spatk = this.randomDamage(10,20)
-            this.$emit("spatk",this.spatk)
+            this.$emit("SPATK",this.spatk)
             console.log("Special Attack :",this.spatk)
+
+            this.spatk = this.randomDamage(10,20)
+            this.$emit("RandomSPATK" , this.spatk)
+            console.log("SPATK back",this.spatk)
         },
+
+        AttackRandom : function(){
+            
+        }
         
         
     }
