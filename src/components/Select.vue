@@ -1,8 +1,8 @@
 <template>
 <div id="Select">
 
-    <button @click="random">
-        random
+    <button @click="random" class="btn btn-danger"> 
+        Random
     </button>
 
 </div>
@@ -64,7 +64,7 @@ export default {
                 {
                     name: 'Ultron',
                     hp: 134,
-                    image: 'https://thumbs.gfycat.com/ThinTinyAegeancat-size_restricted.gif'
+                    image: 'https://i.gifer.com/9scD.gif'
                 },
                 {
                     name:'Loki',

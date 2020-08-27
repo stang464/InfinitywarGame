@@ -8,10 +8,10 @@
 
     <div class="row mt-5">
         <div class="col-md-4"></div>
-        <div class="col-md-4 content"> <button @click="show = !show">Start</button>
+        <div class="col-md-4 content "> <button @click="show = !show" class="btn btn-danger  mb-3 ">Start</button>
 
             <transition name="fade">
-                <div v-if="show " class="content">
+                <div v-if="show " class="content mb-3">
                     <Select @Imgmonster="imgmonster" @Imghero="imghero" @Heroname="Heroname" @HeroHP="HeroHp" @Monstername="Monstername" @MonsterHP="MonsterHP"></Select>
                 </div>
 
@@ -19,6 +19,19 @@
         </div>
 
         <div class="col-md-4"></div>
+    </div>
+       <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4 content ">
+            <AttackButton @atk="Attack" @SPATK="$SPAttack" @RandomATK="Attackback" @RandomSPATK="SPAttackback"> </AttackButton>
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+
     </div>
 
     <div class="row d-flex mb-5">
@@ -53,39 +66,27 @@
     </div>
 
     <div class="row">
-        <div class="col-md-5 content">
-            <p v-if="imgHero" v-bind:style="{width: fsizeH_W + 'px' , height: fsizeH_H + px}"><img :src="imgHero" alt="" class="img-fluid"></p>
+        <div class="col-md-5 content d-flex justify-content-center">
+            <p v-if="imgHero" v-bind:style="{width: fsizeH_W + 'px' , height: fsizeH_H + 'px'}"><img :src="imgHero" alt="" class="img-fluid"></p>
 
         </div>
 
-        <div class="col-md-2 content d-flex flex-column">
-            <div class="p-5"></div>
+        <div class="col-md-2 content flex-column">
+            
             <div class="p-5">
                 <h1>VS</h1>
             </div>
 
         </div>
 
-        <div class="col-md-5 content">
-            <p v-if="imgMonster"  v-bind:style="{ width: fsizeM_W + 'px' , height: fsizeM_H + px}"><img :src="imgMonster" alt="" class="img-fluid"></p>
+        <div class="col-md-5 content d-flex justify-content-center">
+            <p v-if="imgMonster"  v-bind:style="{ width: fsizeM_W + 'px' , height: fsizeM_H + 'px'}"><img :src="imgMonster" alt="" class="img-fluid"></p>
 
         </div>
 
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4 content">
-            <AttackButton @atk="Attack" @SPATK="$SPAttack" @RandomATK="Attackback" @RandomSPATK="SPAttackback"> </AttackButton>
-
-        </div>
-        <div class="col-md-4">
-
-        </div>
-
-    </div>
+ 
   
             <modal v-if="HPHero <= 0 && HPMonster > 0 && heroname != ''"  @$reset="$reset" @reset="reset" @close="showModal = false"  >
                 <h3 slot="header">YOU LOUSE</h3>
@@ -136,10 +137,10 @@ export default {
             HPHeromax: 0,
             max: 0,
             HPMonstermax: 0,
-            fsizeM_W: 200,
-            fsizeH_W : 200,
-            fsizeM_H: 100,
-            fsizeH_H : 100
+            fsizeM_W: 500,
+            fsizeH_W : 500,
+            fsizeM_H: 300,
+            fsizeH_H : 300
 
 
         }
@@ -154,6 +155,8 @@ export default {
         HeroHp(value) {
             this.HPHero = value
             this.HPHeromax = value
+            this.fsizeH_H = value*2
+            this.fsizeH_W = value*2
             console.log("emit", this.HPHero)
         },
         Monstername(value) {
@@ -164,17 +167,21 @@ export default {
         MonsterHP(value) {
             this.HPMonster = value
             this.HPMonstermax = value
+            this.fsizeM_H = value*2
+            this.fsizeM_W = value*2
             console.log("emit mhp", this.HPMonster)
         },
         Attack(value) {
             this.atk = value
-            this.fsizeM_W -= value
-            this.fsizeM_H -= value
+            this.fsizeM_W -= value*1.5
+            this.fsizeM_H -= value*1.5
             this.HPMonster -= this.atk
         },
 
         $SPAttack(value) {
             this.atk = value
+            this.fsizeM_W -= value
+            this.fsizeM_H -= value
             this.HPMonster -= this.atk
         },
         Attackback(value) {
@@ -185,7 +192,10 @@ export default {
         },
 
         SPAttackback(value) {
+
             this.atk = value
+            this.fsizeH_W -= value
+            this.fsizeH_H -= value
             this.HPHero -= this.atk
         },
 
@@ -209,8 +219,8 @@ export default {
         reset(value){
             this.HPHero = value
             this.HPMonster = value
-            this.fsizeM_W= 200,
-            this.fsizeH_W = 200,
+            this.fsizeM_W= 300,
+            this.fsizeH_W = 300,
             this.fsizeM_H=100,
             this.fsizeH_H = 100
         }

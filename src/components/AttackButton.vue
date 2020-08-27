@@ -1,7 +1,7 @@
 <template>
 <div id="AttackButton">
-    <button @click="$attk">Attack</button>
-    <button @click="$Spattk">Special Attack</button>
+    <button @click="$attk" class="btn btn-warning mr-3">Attack</button>
+    <button @click="$Spattk" class="btn btn-warning">Special Attack</button>
 </div>
 </template>
 

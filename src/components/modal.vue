@@ -16,7 +16,7 @@
               </div>
               <div class="modal-footer">
                 <slot name="footer">
-                  <button class="modal-default-button" @click="$emit('close',false),$emit('reset',0),$emit('$reset','')">
+                  <button class="modal-default-button btn-danger" @click="$emit('close',false),$emit('reset',0),$emit('$reset','')">
                     OK
                   </button>
                 </slot>
